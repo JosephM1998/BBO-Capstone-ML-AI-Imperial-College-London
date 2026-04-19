@@ -37,7 +37,14 @@ The eight functions represent different real-world optimisation scenarios:
 
 These functions vary in dimensionality, noise, and structure, requiring different optimisation strategies and highlighting the challenges of black-box optimisation in practice.
 
---- 
+---
+
+## Additional Documentation
+
+- [Dataset Datasheet](data_sheet.md) – Detailed description of the black-box optimisation dataset, including collection process, structure, and intended uses.
+- [Model Card](model_card.md) – Overview of the Bayesian optimisation model, its strategy, performance, assumptions, and limitations.
+
+---
 
 ## Section 2: Navigating this repository
 
