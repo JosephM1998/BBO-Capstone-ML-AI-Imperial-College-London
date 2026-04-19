@@ -2,191 +2,216 @@
 
 ## Section 1: Project Overview
 
-The BBO capstone project simulates a realistic ML scenario where the underlying system is unknown and data is limited. Participants are given eight synthetic black‑box functions, ranging from 2D to 8D, and must optimise them without ever seeing their equations or shapes. Its purpose is to develop strategic, evidence‑driven optimisation skills through iterative experimentation.
+The Black-Box Optimisation (BBO) capstone project simulates a realistic machine learning scenario where the underlying system is unknown and data is limited. Participants are given eight synthetic black-box functions (ranging from 2D to 8D) and must optimise them without access to their true form.
 
-The goal is to maximise each black‑box function’s output. Participants must rely on intelligent search strategies—balancing exploration and exploitation—to learn from limited observations. This reflects real‑world ML problems such as hyperparameter tuning, where the true objective function is unknown, and each evaluation is costly. The aim is to practise uncertainty‑aware decision‑making by updating models as new evidence arrives, managing noisy data, and refining strategies.
+The objective is to maximise each function’s output using a sequential decision-making process with only one query per function per week. This constraint reflects real-world settings where evaluations are expensive, such as hyperparameter tuning, scientific experimentation, or engineering design.
 
-The project builds practical skills that transfer to real ML and data‑science work. It reinforces how to deal with uncertainty, overfitting, recognising irrelevant features, and tuning models effectively when data is scarce. It also develops an iterative, experimental mindset—testing ideas, analysing results, and adapting strategies. These skills are essential for my future career as an ML Engineer or Data Scientist using ML and AI.
+The project emphasises:
+- Balancing exploration and exploitation
+- Learning from sparse and noisy observations
+- Updating models iteratively as new data becomes available
+- Making uncertainty-aware decisions
 
-### Descriptions of functions (this table is from Imperial College London ML/AI course material) 
-| Function | Input X | Output y | Optimisation goal | Descriptions of sample applications |
-|----------|-------|--------|-------------------|-------------------------------------|
-| F1       | 2D Numpy array | 1D Numpy array | Maximise | Detect likely contamination sources in a two-dimensional area, such as a radiation field, where only proximity yields a non-zero reading. The system uses Bayesian optimisation to tune detection parameters and reliably identify both strong and weak sources. |
-| F2       | 2D Numpy array | 1D Numpy array | Maximise | Imagine a black box, or a mystery ML model, that takes two numbers as input and returns a log-likelihood score. Your goal is to maximise that score, but each output is noisy, and depending on where you start, you might get stuck in a local optimum. To tackle this, you use Bayesian optimisation, which selects the next inputs based on what it has learned so far. It balances exploration with exploitation, making it well suited to noisy outputs and complex functions with many local peaks. |
-| F3       | 3D Numpy array | 1D Numpy array | Maximise | You’re working on a drug discovery project, testing combinations of three compounds to create a new medicine. Each experiment is stored in initial_inputs.npy as a 3D array, where each row lists the amounts of the three compounds used. After each experiment, you record the number of adverse reactions, stored in initial_outputs.npy as a 1D array. Your goal is to minimise side effects; in this competition, it is framed as maximisation by optimising a transformed output (e.g. the negative of side effects). |
-| F4       | 4D Numpy array | 1D Numpy array | Maximise | Address the challenge of optimally placing products across warehouses for a business with high online sales, where accurate calculations are costly and only feasible biweekly. To speed up decision-making, an ML model approximates these results within hours. The model has four hyperparameters to tune, and its output reflects the difference from the expensive baseline. Because the system is dynamic and full of local optima, it requires careful tuning and robust validation to find reliable, near-optimal solutions. |     
-| F5       | 4D Numpy array | 1D Numpy array | Maximise | You’re tasked with optimising a four-variable black-box function that represents the yield of a chemical process in a factory. The function is typically unimodal, with a single peak where yield is maximised. Your goal is to find the optimal combination of chemical inputs that delivers the highest possible yield, using systematic exploration and optimisation methods. |
-| F6       | 5D Numpy array | 1D Numpy array | Maximise | You’re optimising a cake recipe using a black-box function with five ingredient inputs, for example flour, sugar, eggs, butter and milk. Each recipe is evaluated with a combined score based on flavour, consistency, calories, waste and cost, where each factor contributes negative points as judged by an expert taster. This means the total score is negative by design. To frame this as a maximisation problem, your goal is to bring that score as close to zero as possible or, equivalently, to maximise the negative of the total sum. |
-| F7       | 6D Numpy array | 1D Numpy array | Maximise | You’re tasked with optimising an ML model by tuning six hyperparameters, for example learning rate, regularisation strength or number of hidden layers. The function you’re maximising is the model’s performance score (such as accuracy or F1), but since the relationship between inputs and output isn’t known, it’s treated as a black-box function. Because this is a commonly used model, you might benefit from researching best practices or literature to guide your initial search space. Your goal is to find the combination of hyperparameters that yields the highest possible performance. |
-| F8       | 8D Numpy array | 1D Numpy array | Maximise | You’re optimising an eight-dimensional black-box function, where each of the eight input parameters affects the output, but the internal mechanics are unknown. Your objective is to find the parameter combination that maximises the function’s output, such as performance, efficiency or validation accuracy. Because the function is high-dimensional and likely complex, global optimisation is hard, so identifying strong local maxima is often a practical strategy. For example, imagine you’re tuning an ML model with eight hyperparameters: learning rate, batch size, number of layers, dropout rate, regularisation strength, activation function (numerically encoded), optimiser type (encoded) and initial weight range. Each input set returns a single validation accuracy score between 0 and 1. Your goal is to maximise this score. |
+This setting mirrors real-world optimisation challenges in machine learning, where the objective function is unknown and costly to evaluate. As a result, the project develops practical skills in:
+- Bayesian optimisation
+- Model tuning under uncertainty
+- Identifying relevant vs irrelevant features
+- Avoiding overfitting in low-data regimes
+
+---
+
+## Function Descriptions
+
+The eight functions represent different real-world optimisation scenarios:
+
+| Function | Dim | Description |
+|----------|-----|------------|
+| F1 | 2D | Detect contamination sources with sparse, localised signals |
+| F2 | 2D (noisy) | Optimise a noisy likelihood function with multiple local optima |
+| F3 | 3D | Drug discovery: minimise side effects via transformed objective |
+| F4 | 4D | Warehouse optimisation via ML surrogate model tuning |
+| F5 | 4D | Chemical process optimisation (unimodal yield function) |
+| F6 | 5D | Recipe optimisation with multiple competing objectives |
+| F7 | 6D | ML hyperparameter tuning (unknown performance landscape) |
+| F8 | 8D | High-dimensional optimisation with complex interactions |
+
+These functions vary in dimensionality, noise, and structure, requiring different optimisation strategies and highlighting the challenges of black-box optimisation in practice.
+
+--- 
 
 ## Section 2: Navigating this repository
 
+
+
 ## Section 3: Inputs and Outputs
 
-Inputs: Eight sets of input query vectors of varying dimensions 2D to 8D (Functions 1 to 8) in a hyphen-separated format x1-x2-…-xn to 6 decimal places (e.g. 0.123456-0.789876 for 2D). Every component in each query vector must lie between 0 and 1. Limited budget (and limited data), one query per function per weekly submission.
+### Inputs
+The dataset consists of eight independent sets of input query vectors corresponding to Functions 1–8, with dimensionality ranging from 2D to 8D.
 
-Outputs: One single scalar performance value output (positive or negative) per query per input function.
+- Each query is a vector:  
+  **x = [x₁, x₂, …, xₙ]**, where *n ∈ {2,…,8}*
+- Each component lies within a bounded domain:  
+  **xᵢ ∈ [0, 1]**
+- Queries are recorded in a hyphen-separated format with fixed precision (6 decimal places), for example:  
+  `0.123456-0.789876` (2D)
+
+A strict evaluation constraint applies:
+- **One query per function per week**
+- This results in a **small, sequentially growing dataset**
+
+---
+
+### Outputs
+Each query produces a single scalar output:
+
+- **y ∈ ℝ** (can be positive or negative)
+- Represents the performance or objective value of the function
+- Some functions include noise or transformations (e.g. negation, log-scaling)
+
+Each input–output pair forms one observation used to update the optimisation model.
 
 ## Section 4: Challenge Objectives
 
-The objective of the BBO capstone project is to optimise a set of eight unknown functions using only limited, sequentially acquired data. Each function represents a maximisation problem, where the input values are used to produce the highest possible output. The optimisation must rely entirely on observed input–output pairs and intelligent search strategies.
+The goal of the BBO capstone project is to maximise the outputs of eight unknown black-box functions using only sequentially acquired data.
 
-Constraints: One submission query per function per week; response delay with outputs only revealed after each weekly submission cycle; variations in dimensionality (2D to 8D); noise levels; highly non-linear. This makes traditional analytical optimisation impossible.
+Since the functional forms are hidden, optimisation must rely entirely on:
+- Observed input–output pairs
+- Surrogate modelling (e.g. Gaussian Processes)
+- Intelligent search strategies balancing exploration and exploitation
 
-## Section 5: Weekly Query Point Output Results Weeks 1 to 9
+---
 
-| Function | Best from initial data | Week 1 | Week 2 | Week 3 | Week 4 | Week 5 | Week 6 | Week 7 | Week 8 | Week 9 | Week 10 | Week 11 | Week 12 |
-|----------|------------------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|---------|---------|---------|
-| F1 (2D)  | 
-| F2 (2D)  | 
-| F3 (2D)  |
-| F4 (2D)  |
-| F5 (2D)  |
-| F6 (2D)  |
-| F7 (2D)  |
-| F8 (2D)  |
+### Constraints
 
-## Section 6: Technical Approach
+The optimisation problem is deliberately designed to reflect real-world limitations:
 
-### Weeks 1–3:
+- **Limited query budget:** one submission per function per week  
+- **Delayed feedback:** outputs are revealed only after each weekly cycle  
+- **Varying dimensionality:** functions range from 2D to 8D  
+- **Noise:** some functions include stochastic outputs  
+- **Non-linearity:** highly complex and multi-modal landscapes  
 
-The approach has been deliberately exploration‑heavy, reflecting the limited data available and the risk of converging too quickly on suboptimal regions. Each function required slightly different handling depending on dimensionality, noise and structure. Week 1 began with conservative EI‑based exploration, Week 2 increased exploration using UCB, and Week 3 introduced more function‑specific heuristics and stronger uncertainty‑driven search.
+These constraints make traditional analytical or gradient-based optimisation infeasible.
 
-### Week 4:
+---
 
-### Week 5:
+### Implications
 
-### Week 6: 
+As a result, the task requires:
+- Careful management of uncertainty  
+- Efficient use of sparse data  
+- Adaptive strategies that evolve over time  
 
-### Week 7:
+This setup mirrors real-world optimisation problems such as hyperparameter tuning, scientific experimentation, and engineering design, where evaluations are costly and limited.
 
-### Week 8: 
+---
 
-### Week 9:
+## Section 5: Technical Approach
 
+This section summarises the approach taken across 12 weeks for the Black-Box Optimisation (BBO) capstone project. All eight functions are maximisation tasks. The strategies evolved from exploration-focused early weeks to exploitation-focused later weeks.
 
+---
 
-### Week 10:
+### Weeks 1–5: Exploration Phase
+- **Goal:** Discover promising regions of the unknown functions while avoiding premature convergence.
+- **Strategy:**  
+  - Used Expected Improvement (EI) with moderate ξ or Upper Confidence Bound (UCB) with moderate κ.  
+  - Adjusted acquisition functions per function based on dimensionality, noise, and landscape complexity.  
+  - Multi-start or Latin Hypercube Sampling (LHS) for higher-dimensional or multimodal functions.  
+  - Gaussian Process (GP) kernels adapted per function, with log/shift transforms applied where necessary for stability.
 
-#### Overall Strategy (Week 10)
-Week 10 marks the final exploitation phase of Bayesian Optimisation. Across all functions:
-•	Expected Improvement (EI) uses very small ξ (0.0005–0.005) → near-greedy behaviour 
-•	Search radii are tight (≈0.02–0.03) → local refinement only 
-•	Gaussian Processes (GPs) are well-trained from Weeks 1–9 
-•	Focus shifts from exploration → fine-tuning near best-known optima 
+| Function | Weeks 1–5 Approach | Rationale |
+|----------|-----------------|----------|
+| F1 (2D) | EI ξ=0.05 → UCB κ=2.5 → EI ξ=0.1 → UCB κ=6 → UCB κ=6 | Conservative start, then more exploration; log-transform maintained for narrow peaks |
+| F2 (2D, noisy) | EI ξ=0.1 → UCB κ=2.5 → EI ξ=0.15 → UCB κ=4.5 → UCB κ=3.8 | Noise-aware EI/UCB alternation; broaden exploration then refine local peaks |
+| F3 (3D) | EI ξ=0.1 → UCB κ=2.5 → UCB κ=3.0 → UCB κ=2.5 → Multi-start EI ξ=0.03 | Increased κ to push exploration in sensitive dimensions; negative outputs shifted |
+| F4 (4D) | EI ξ=0.2 → UCB κ=2.5 → UCB κ=5.0 + DE → UCB κ=4 + DE → UCB κ=3.8 + DE | High κ + jitter avoids boundary collapse; DE ensures diverse exploration |
+| F5 (4D, unimodal) | EI ξ=0.1 → UCB κ=2.5 → UCB κ=2.5 + random search → UCB κ=2.5 → EI ξ=0.01 | Focused exploration near known peak; random search supports robustness |
+| F6 (5D) | EI ξ=0.1 → UCB+penalty κ=2.0 → UCB+penalty κ=3.5 → UCB+penalty κ=2.5 → UCB+penalty κ=1.2 | Penalties + distance heuristics avoid poor regions; explore key ingredients |
+| F7 (6D) | EI ξ=0.1 → UCB κ=5.0 → UCB κ=5.0 → UCB κ=1.5 → UCB κ=1.3 | High κ initially to explore high dimensions; boundary-safe adjustments later |
+| F8 (8D) | EI ξ=0.2 → EI ξ=0.2 → LHS + UCB κ=8 → LHS + UCB κ=7 → LHS + UCB κ=6 | Latin Hypercube Sampling + UCB ensures global exploration and dimension coverage |
 
-#### Function-by-Function Summary (Week 10)
-##### Function 1 (2D, deterministic, sparse peaks)
-•	Data mostly near zero with sharp, narrow peaks 
-•	GP: RBF kernel, low noise (α=1e-6), log-transformed outputs 
-•	Strategy: 
-  o	Local EI optimisation (ξ=0.005) 
-  o	Radius = 0.02 around best point 
-•	Query: [0.629953, 0.486520] 
-•	Insight: 
-  o	Peaks are highly localised → pure exploitation 
-  o	Goal: refine contamination source detection 
+---
 
-##### Function 2 (2D, noisy, multimodal)
-•	Noisy outputs with multiple local maxima 
-•	GP accounts for uncertainty (slightly higher α) 
-•	Strategy: 
-  o	EI (ξ=0.005), but noise-aware 
-  o	Local search with multiple restarts 
-•	Query: [0.533026, 0.565895] 
-•	Insight: 
-  o	Similar to Function 1, but more cautious 
-  o	Noise can mislead optimisation → careful refinement 
+### Weeks 6–9: Exploitation Phase
+- **Goal:** Focus on refining the promising regions discovered earlier, with limited exploration where needed.  
+- **Strategy:**  
+  - Tight local bounds around best-known optima.  
+  - EI with small ξ for exploitation; sometimes hybrid EI+UCB for noise handling.  
+  - Differential Evolution (DE) or multi-start EI to avoid local traps in multimodal or rugged landscapes.  
+  - Automatic Relevance Determination (ARD) kernels to prioritise sensitive dimensions.  
+  - Transformations (log/shift) applied to stabilise GP predictions.  
+  - PCA visualisations for functions ≥4D to ensure query points remain in optimal clusters.
 
-##### Function 3 (3D, negative outputs transformed)
-•	Objective: minimise side effects (via maximisation transform)
-•	Outputs shifted + log-transformed for GP stability
-•	GP: 
-  o	RBF with short length-scale in dimension 3 (high sensitivity)     
-•	Strategy:
-    o	Tight bounds around best region    
-    o	EI with ξ=0.005     
-•	Query: [0.869309, 0.567474, 0.093237] 
-•	Insight: 
-    o	Strong dimension-specific sensitivity   
-    o	Focused exploitation in promising drug combinations 
+---
 
-##### Function 4 (4D, multimodal hyperparameters)
-•	Complex landscape with multiple local optima
-•	GP trained on 37 points
-•	Strategy:
-    o	EI (ξ=0.003)    
-    o	Tight bounds (±0.02)   
-    o	Differential Evolution (DE) + jitter     
-•	Query: [0.401766, 0.385109, 0.392801, 0.432944]
-•	Insight:
-    o	DE helps avoid local traps even in small regions   
-    o	PCA confirms clustering near optimum 
+### Week 10: Final Exploitation
+| Function | Dim | Focus | Query | EI ξ / Search Radius | Notes |
+|----------|-----|-------|-------|--------------------|-------|
+| F1 | 2D | Exploit best-known peak | [0.629953, 0.486520] | 0.005 / 0.02 | Narrow peaks, local refinement, no exploration needed |
+| F2 | 2D | Refine local peak | [0.533026, 0.565895] | 0.005 / 0.02 | Noise-sensitive, careful GP exploitation |
+| F3 | 3D | Refine promising drug combo | [0.869309,0.567474,0.093237] | 0.005 / focused bounds | Exploit low length-scale dimensions; negative outputs shifted |
+| F4 | 4D | Local ML hyperparameter refinement | [0.401766,0.385109,0.392801,0.432944] | 0.003 / ±0.02 | DE avoids duplicates; focus on local cluster |
+| F5 | 4D | Ultra-precise fine-tune | [0.999992,0.999997,0.999996,0.990008] | 0.0005 / tight bounds | Essentially pure exploitation |
+| F6 | 5D | Refine recipe | [0.374036,0.285500,0.745577,0.848678,0.130795] | 0.0005 / ±0.03 | ARD highlights sensitive dims; slight boundary shifts |
+| F7 | 6D | Local BO step | [0.1482,0.1625,0.3973,0.2662,0.2852,0.8291] | 0.001 / 0.02 | Local refinement; minor radius adjustments suggested |
+| F8 | 8D | Ridge + boundary push | [0.0358,0.0832,0.1629, ~0,0.7542,0.4736,0.1572,0.8728] | 0.001 / 0.03 | High-dimensional boundary effects; minimal improvement |
 
-##### Function 5 (4D, unimodal)
-•	Clear single peak near [1,1,1,1] 
-•	GP assumes near-deterministic behaviour (α≈0) 
-•	Strategy: 
-    o	Extremely small ξ = 0.0005     
-    o	Ultra-tight bounds near optimum    
-•	Query: [0.999992, 0.999997, 0.999996, 0.990008] 
-•	Insight: 
-  o	Pure exploitation 
-  o	Fine-tuning at numerical precision level 
+**Key Patterns:**
+- Exploitation dominates; ξ values very small.  
+- Boundary behaviour important in high dimensions.  
+- ARD identifies critical dimensions; lower length-scales → higher sensitivity.  
+- Transformations stabilise GP predictions.  
+- DE, multi-start, or L-BFGS-B used to avoid local traps.  
+- PCA confirms points remain within optimal clusters.
 
-##### Function 6 (5D, structured, near-unimodal region)
-•	ARD kernel identifies dimension sensitivities 
-•	Best previous point refined locally 
-•	Strategy: 
-  o	EI (ξ=0.0005) 
-  o	Bounds ±0.03 
-•	Query: [0.374036, 0.285500, 0.745577, 0.848678, 0.130795] 
-•	Insight: 
-  o	Small shifts toward boundaries (x₁, x₅) 
-  o	Exploits ingredient sensitivity learned by GP 
+---
 
-##### Function 7 (6D, hyperparameter tuning)
-•	High-dimensional optimisation with GP + EI 
-•	Strategy: 
-  o	Very local search (radius = 0.02) 
-  o	DE optimisation 
-•	Query: [0.1482, 0.1625, 0.3973, 0.2662, 0.2852, 0.8291] 
-•	Insight: 
-  o	Likely near optimum → fine-tuning stage 
-  o	Risk: search may be too local 
-  o	Suggested improvement: slightly larger radius or multiple restarts 
+### Weeks 11–12: Convergence and Confirmation (planned)
 
-##### Function 8 (8D, complex multimodal)
-•	Most complex function; ARD reveals dimension importance 
-  o	Key dims: 0, 2, 5, 6 
-  o	Irrelevant dim: 7 (length-scale ~100) 
-•	Strategy: 
-  o	EI (ξ≈0.001) 
-  o	Local refinement + boundary push 
-•	Query: [0.0358, 0.0832, 0.1629, ~0, 0.7542, 0.4736, 0.1572, 0.8728] 
-•	Insight: 
-  o	Movement along a ridge toward boundary (dim 3 → 0) 
-  o	GP very confident → EI nearly flat 
-  o	Indicates near convergence 
+| Function | Dim | Planned Focus | Query | EI ξ / Search Radius | Notes |
+|----------|-----|---------------|-------|--------------------|-------|
+| F1 | 2D | Confirm best contamination source | – | – | Minimal exploration; trust GP; final validation |
+| F2 | 2D | Confirm local peak refinement | – | – | Noise-aware; final check of previous maxima |
+| F3 | 3D | Refine promising drug combination | – | – | Exploit sensitive dims; confirm stability of predictions |
+| F4 | 4D | Validate ML hyperparameter refinement | – | – | Ensure DE results reproducible; local cluster confirmed |
+| F5 | 4D | Ultra-precise final chemical yield | – | – | Near-peak evaluation; essentially pure exploitation |
+| F6 | 5D | Confirm recipe optimisation | – | – | Check ARD-sensitive dimensions; slight boundary shifts if needed |
+| F7 | 6D | Fine-tune hyperparameters | – | – | Local refinement; ensure reproducibility of BO steps |
+| F8 | 8D | Validate ridge + boundary convergence | – | – | High-dimensional boundary effects; confirm minimal improvement |
 
-#### Key Takeaways Across Functions
-•	Exploitation dominates: minimal exploration remains 
-•	EI is nearly flat → only small improvements possible 
-•	ARD kernels guide dimension-wise focus 
-•	Boundary behaviour becomes important in high dimensions 
-•	Transformations (log, shifting) improve GP stability 
-•	Differential Evolution + restarts ensure robustness 
+**Key Points (planned):**
+- No new queries yet; Weeks 11–12 will mainly confirm convergence.  
+- Minimal exploration; GP predictions trusted for final evaluations.  
+- Outcomes expected: reproducible results and complete understanding of function behaviour.
 
-#### Conclusion
-Week 10 represents late-stage convergence:
-•	All functions show tight clustering around optima 
-•	Improvements are incremental and diminishing 
-•	Strategy is consistent: trust the GP and refine locally 
-The optimisation process is now preparing for final confirmation (Weeks 11–12) rather than discovery.
+## Key Takeaways
 
-### Week 11
+- **Weeks 1–4 (Exploration):** Critical for discovering promising regions while avoiding premature convergence.  
+- **Week 5 (Exploration-heavy):** Extends discovery phase, balancing exploration and beginning early refinement.  
+- **Weeks 6–9 (Exploitation + Some Exploration):** Focus on high-potential regions; Gaussian Processes guide local searches; ARD identifies sensitive dimensions; Differential Evolution and multi-start strategies avoid local traps.  
+- **Week 10 (Final Exploitation):** Tight local refinement near best-known optima; EI ξ very small; boundary and dimensional effects become important; transformations stabilize GP predictions.  
+- **Weeks 11–12 (Convergence & Confirmation, planned):** Minimal exploration; trust GP predictions; final evaluations validate reproducibility and consolidate insights into function behaviour.
 
+## Conclusion
 
+- Week 10 marks late-stage convergence: improvements are incremental, and optima cluster tightly.  
+- Weeks 11–12 will confirm convergence, ensuring reproducible results across all functions.  
+- The optimisation strategy is consistent: explore early, refine mid-stage, exploit late, and validate at the end.  
+- The repository demonstrates practical black-box optimisation under realistic constraints, balancing sequential decision-making, surrogate modelling, and uncertainty-aware strategies.
 
-### Week 12
+## Summary
+
+This repository provides a complete end-to-end study of constrained black-box optimisation, combining:
+
+- Sequential decision-making  
+- Gaussian Process modelling  
+- Acquisition-based search strategies  
+- Realistic uncertainty-driven optimisation dynamics  
+
+It serves as a practical demonstration of how ML systems operate when data is limited, expensive, and sequentially acquired.
+
+## References
+- Rasmussen & Williams (2006), "Gaussian Process for Machine Learning".
+- Jones et. al (1998), "Efficient Global Optimization".
+- Imperial College London Professional Certificate in ML/AI materials.
