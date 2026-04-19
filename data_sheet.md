@@ -1,5 +1,5 @@
 # Black Box Optimisation (BBO) Datasheet  
-Imperial College London – ML/AI Capstone Project  
+Imperial College London – ML/AI BBO Capstone Project  
 
 ---
 
