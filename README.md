@@ -174,21 +174,21 @@ This section summarises the approach taken across 12 weeks for the Black-Box Opt
 
 ---
 
-### Weeks 11–12: Convergence and Confirmation (planned)
+### Weeks 11–13: Convergence and Confirmation (planned)
 
-| Function | Dim | Planned Focus | Query | EI ξ / Search Radius | Notes |
+| Function | Dim | Planned Focus | Final Query | EI ξ / Search Radius (Weeks 11-13) | Notes |
 |----------|-----|---------------|-------|--------------------|-------|
-| F1 | 2D | Confirm best contamination source | – | – | Minimal exploration; trust GP; final validation |
-| F2 | 2D | Confirm local peak refinement | – | – | Noise-aware; final check of previous maxima |
-| F3 | 3D | Refine promising drug combination | – | – | Exploit sensitive dims; confirm stability of predictions |
-| F4 | 4D | Validate ML hyperparameter refinement | – | – | Ensure DE results reproducible; local cluster confirmed |
-| F5 | 4D | Ultra-precise final chemical yield | – | – | Near-peak evaluation; essentially pure exploitation |
-| F6 | 5D | Confirm recipe optimisation | – | – | Check ARD-sensitive dimensions; slight boundary shifts if needed |
-| F7 | 6D | Fine-tune hyperparameters | – | – | Local refinement; ensure reproducibility of BO steps |
-| F8 | 8D | Validate ridge + boundary convergence | – | – | High-dimensional boundary effects; confirm minimal improvement |
+| F1 | 2D | Confirm best contamination source | [0.607953, 0.508520] | 0.001 / 0.01 → 0.0005 / 0.005 → 0.0001 / 0.002 | Minimal exploration; trust GP; final validation → convergence and final confirmation |
+| F2 | 2D | Confirm local peak refinement | [0.506339, 0.532020] | 0.002 / 0.01 → 0.001 / 0.005 → 0.00001 / 0.002 | Noise-aware; final check of previous maxima → convergence and final confirmation |
+| F3 | 3D | Refine promising drug combination | [0.838816, 0.549524, 0.083734] | 0.002 → 0.001 → 0.00001 | Exploit sensitive dims; confirm stability of predictions → convergence and final confirmation |
+| F4 | 4D | Validate ML hyperparameter refinement | [0.404528, 0.372208, 0.390889, 0.432584] | 0.002 / ±0.01 → 0.001 / ±0.005 → 0.00001 / ±0.002 | Ensure DE results reproducible; local cluster confirmed → convergence and final confirmation |
+| F5 | 4D | Ultra-precise final chemical yield | [0.999999, 0.999999, 0.999999, 0.999999] | 0.0001 → 0.00001 → 0.000001 / 0.0005 | Near-peak evaluation; essentially pure exploitation → convergence and final confirmation |
+| F6 | 5D | Confirm recipe optimisation | [0.343537, 0.255007, 0.725570, 0.878177, 0.101295] | 0.0001 / ±0.015 → 0.00001 / ±0.005 → 0.000001 / ±0.0005 | Check ARD-sensitive dimensions; slight boundary shifts if needed → convergence and final confirmation |
+| F7 | 6D | Fine-tune hyperparameters | [0.156593, 0.180499, 0.379340, 0.324014, 0.266726, 0.783520] | 0.0005 / ±0.01 → 0.0001 / ±0.005 → 0.0001 / ±0.0001 | Local refinement; ensure reproducibility of BO steps → convergence and final confirmation |
+| F8 | 8D | Validate ridge + boundary convergence | [0.096511, 0.083242, 0.119941, 0.127242, 0.754161, 0.464532, 0.231655, 0.872809] | 0.001 → 0.001 → 0.001 | High-dimensional boundary effects; confirm minimal improvement → convergence and final confirmation |
 
-**Key Points (planned):**
-- No new queries yet; Weeks 11–12 will mainly confirm convergence.  
+**Key Points:**
+- Weeks 11–13 confirm convergence F1-F8.  
 - Minimal exploration; GP predictions trusted for final evaluations.  
 - Outcomes expected: reproducible results and complete understanding of function behaviour.
 
@@ -198,12 +198,12 @@ This section summarises the approach taken across 12 weeks for the Black-Box Opt
 - **Week 5 (Exploration-heavy):** Extends discovery phase, balancing exploration and beginning early refinement.  
 - **Weeks 6–9 (Exploitation + Some Exploration):** Focus on high-potential regions; Gaussian Processes guide local searches; ARD identifies sensitive dimensions; Differential Evolution and multi-start strategies avoid local traps.  
 - **Week 10 (Final Exploitation):** Tight local refinement near best-known optima; EI ξ very small; boundary and dimensional effects become important; transformations stabilize GP predictions.  
-- **Weeks 11–12 (Convergence & Confirmation, planned):** Minimal exploration; trust GP predictions; final evaluations validate reproducibility and consolidate insights into function behaviour.
+- **Weeks 11–13 (Convergence & Confirmation):** Minimal exploration; trust GP predictions; final evaluations validate reproducibility and consolidate insights into function behaviour.
 
 ## Conclusion
 
 - Week 10 marks late-stage convergence: improvements are incremental, and optima cluster tightly.  
-- Weeks 11–12 will confirm convergence, ensuring reproducible results across all functions.  
+- Weeks 11–13 confirm convergence, ensuring reproducible results across all functions.  
 - The optimisation strategy is consistent: explore early, refine mid-stage, exploit late, and validate at the end.  
 - The repository demonstrates practical black-box optimisation under realistic constraints, balancing sequential decision-making, surrogate modelling, and uncertainty-aware strategies.
 
