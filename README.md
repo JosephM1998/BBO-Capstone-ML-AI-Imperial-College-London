@@ -174,7 +174,7 @@ This section summarises the approach taken across 12 weeks for the Black-Box Opt
 
 ---
 
-### Weeks 11–13: Convergence and Confirmation (planned)
+### Weeks 11–13: Convergence and Confirmation
 
 | Function | Dim | Planned Focus | Final Query | EI ξ / Search Radius (Weeks 11-13) | Notes |
 |----------|-----|---------------|-------|--------------------|-------|
