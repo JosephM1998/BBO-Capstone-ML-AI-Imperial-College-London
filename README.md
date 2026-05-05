@@ -71,7 +71,6 @@ This folder contains one notebook per weekly query point submission:
 
 - **`Module 12 BBO Capstone.ipynb`**  
   Week 1 notebook covering initial experimentation and early BBO function analysis.
-to...
 - **`Module 13 BBO Capstone Week 2 of 13.ipynb` → `Module 24 BBO Capstone Week 13 of 13.ipynb`**  
   Weeks 2–13 notebooks, each documenting:
   - Weekly query point work for functions 1–8  
