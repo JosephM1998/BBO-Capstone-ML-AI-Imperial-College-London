@@ -92,7 +92,7 @@ You can view notebooks directly on GitHub or download them to run locally.
 - **`model_card.md`**    
 
 - **`full_data_inputs_and_outputs.md`**  
-  A complete reference of all BBO function inputs (X_train 2D to 8D .npy array) and outputs (y_train 1D .npy array) used across the project.  
+  A complete reference of all BBO function inputs (X_train 2D to 8D numpy array) and outputs (y_train 1D numpy array) used across the project.  
   This file includes:
   - Full datasets for functions 1–8 (2D to 8D)  
   Essential for reproducing or extending the modelling work.
