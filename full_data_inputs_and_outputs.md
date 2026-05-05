@@ -1,6 +1,16 @@
 ## BBO Capstone Full Data Inputs (X_train) and Outputs (y_train) Functions 1 to 8 including initial data and Weeks 1-13
 
-Please feel free to copy and paste into Jupyter notebook.
+## How to Use This Data
+
+This file contains all input (X_train) and output (y_train) arrays for Functions F1–F8.
+
+To use in a Jupyter Notebook:
+1. Copy the desired function block
+2. Paste into a code cell
+3. Ensure NumPy is imported:
+
+```python
+import numpy as np
 
 ### Function 1 Inputs and Outputs
 
