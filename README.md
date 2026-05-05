@@ -76,12 +76,7 @@ You can view notebooks directly on GitHub or download them to run locally.
 
 - **`data_sheet.md`**  
 
-- **`model_card.md`**  
-  Model governance documentation covering:
-  - Model purpose and intended use  
-  - Training data and methodology  
-  - Performance metrics  
-  - Ethical considerations, risks, and limitations  
+- **`model_card.md`**    
 
 - **`full_data_inputs_and_outputs.md`**  
   A complete reference of all BBO function inputs (X_train 2D to 8D .npy array) and outputs (y_train 1D .npy array) used across the project.  
