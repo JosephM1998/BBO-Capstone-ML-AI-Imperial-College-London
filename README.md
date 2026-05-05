@@ -8,7 +8,7 @@ The repository includes:
 
 - **Jupyter notebooks** documenting experiments and weekly query submissions  
 - **Dataset datasheet** detailing inputs and outputs
-- **Full data inputs and outputs** Functions F1-F8 full data inputs and outputs (including initial data and data Weeks 1-13)   
+- **Full data inputs and outputs** Functions F1-F8 (including initial data and data Weeks 1-13)   
 - **Model card** describing the optimisation approach, assumptions, and limitations  
 
 It provides a complete and transparent reference for reproducing or extending this work.
