@@ -1,5 +1,17 @@
 # Black Box Optimisation (BBO) Capstone Project - Imperial College London ML/AI Course
 
+## Non-Technical Summary
+
+This project explores optimisation of eight unknown “black-box” functions using limited weekly queries, simulating real-world scenarios where evaluations are costly. We applied Bayesian optimisation with Gaussian Processes to guide decisions, balancing exploration of unknown regions with exploitation of promising areas. Over 13 weeks, strategies evolved from broad exploration to precise local refinement, achieving reproducible and near-optimal results for all functions. 
+
+The repository includes:
+
+- **Jupyter notebooks** documenting experiments and weekly query submissions  
+- **Dataset datasheet** detailing inputs and outputs  
+- **Model card** describing the optimisation approach, assumptions, and limitations  
+
+It provides a complete and transparent reference for reproducing or extending this work.
+
 ## Section 1: Project Overview
 
 The Black-Box Optimisation (BBO) capstone project simulates a realistic machine learning scenario where the underlying system is unknown and data is limited. Participants are given eight synthetic black-box functions (ranging from 2D to 8D) and must optimise them without access to their true form.
