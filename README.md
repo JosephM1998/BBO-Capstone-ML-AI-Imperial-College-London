@@ -48,7 +48,48 @@ These functions vary in dimensionality, noise, and structure, requiring differen
 
 ## Section 2: Navigating this repository
 
+This repository contains all notebooks, data documentation, and model governance materials for the BBO Capstone project. The structure is designed to be clear, modular, and easy to follow.
 
+---
+
+### Notebooks (`/notebooks`)
+
+This folder contains one notebook per weekly query point submission:
+
+- **`Module 12 BBO Capstone.ipynb`**  
+  Week 1 notebook covering initial experimentation and early BBO function analysis.
+to...
+- **`Module 13 BBO Capstone Week 2 of 13.ipynb` → `Module 24 BBO Capstone Week 13 of 13.ipynb`**  
+  Weeks 2–13 notebooks, each documenting:
+  - Weekly query point work for functions 1–8  
+  - Experiments, results, and reflections  
+  - Code cells for reproducibility  
+  - Progressive development of the BBO modelling approach  
+
+You can view notebooks directly on GitHub or download them to run locally.
+
+---
+
+### Project Documentation (root directory)
+
+- **`README.md`**  
+
+- **`data_sheet.md`**  
+
+- **`model_card.md`**  
+  Model governance documentation covering:
+  - Model purpose and intended use  
+  - Training data and methodology  
+  - Performance metrics  
+  - Ethical considerations, risks, and limitations  
+
+- **`full_data_inputs_and_outputs.md`**  
+  A complete reference of all BBO function inputs (X_train 2D to 8D .npy array) and outputs (y_train 1D .npy array) used across the project.  
+  This file includes:
+  - Full datasets for functions 1–8 (2D to 8D)  
+  Essential for reproducing or extending the modelling work.
+
+---
 
 ## Section 3: Inputs and Outputs
 
