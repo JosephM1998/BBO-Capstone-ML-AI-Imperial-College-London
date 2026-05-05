@@ -269,5 +269,5 @@ It serves as a practical demonstration of how ML systems operate when data is li
 
 ## References
 - Rasmussen & Williams (2006), "Gaussian Process for Machine Learning".
-- Jones et. al (1998), "Efficient Global Optimization".
+- Jones et al. (1998), "Efficient Global Optimization".
 - Imperial College London Professional Certificate in ML/AI materials.
