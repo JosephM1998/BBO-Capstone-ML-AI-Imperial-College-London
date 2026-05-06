@@ -54,8 +54,9 @@ These functions vary in dimensionality, noise, and structure, requiring differen
 
 ## Additional Documentation
 
-- [Dataset Datasheet](data_sheet.md) – Detailed description of the black-box optimisation dataset, including collection process, structure, and intended uses.
-- [Model Card](model_card.md) – Overview of the Bayesian optimisation model, its strategy, performance, assumptions, and limitations.
+- **[Dataset Datasheet](data_sheet.md)** – Detailed description of the black-box optimisation dataset, including collection process, structure, and intended uses.
+- **[Model Card](model_card.md)** – Overview of the Bayesian optimisation model, its strategy, performance, assumptions, and limitations.
+- **[`full_data_inputs_and_outputs.md`](full_data_inputs_and_outputs.md)** – Complete query inputs and outputs for F1–F8, Weeks 1–13
 
 ---
 
@@ -66,6 +67,29 @@ This repository contains all notebooks, data documentation, and model governance
 ---
 
 ### Repository structure
+
+```text
+BBO-Capstone-ML-AI-Imperial-College-London/
+│
+├── README.md
+├── data_sheet.md
+├── model_card.md
+├── full_data_inputs_and_outputs.md
+├── notebooks/
+│   ├── Module 12 BBO Capstone.ipynb       # Week 1
+│   ├── Module 13 BBO Capstone Week 2.ipynb
+│   ├── Module 14 BBO Capstone Week 3.ipynb
+│   ├── Module 15 BBO Capstone Week 4.ipynb
+│   ├── Module 16 BBO Capstone Week 5.ipynb
+│   ├── Module 17 BBO Capstone Week 6.ipynb
+│   ├── Module 18 BBO Capstone Week 7.ipynb
+│   ├── Module 19 BBO Capstone Week 8.ipynb
+│   ├── Module 20 BBO Capstone Week 9.ipynb
+│   ├── Module 21 BBO Capstone Week 10.ipynb
+│   ├── Module 22 BBO Capstone Week 11.ipynb
+│   ├── Module 23 BBO Capstone Week 12.ipynb
+│   └── Module 24 BBO Capstone Week 13.ipynb
+```
 
 | Folder/File | Description |
 |------------|-------------|
