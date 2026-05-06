@@ -4,8 +4,10 @@
 ---
 
 ## 1. Overview
-**Model Name:** Bayesian Black-Box Optimisation System (BBO-GP-EI-UCB) 
+**Model Name:** Bayesian Black-Box Optimisation System (BBO-GP-EI-UCB)
+
 **Type:** Sequential Bayesian Optimisation framework 
+
 **Version:** v1.1 (Weeks 1–13, including final validation and convergence)
 
 **Description:** 
