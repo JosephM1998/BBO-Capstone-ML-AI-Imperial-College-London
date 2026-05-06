@@ -1,183 +1,138 @@
-# Model Card: Bayesian Black-Box Optimisation System  
-Imperial College London – ML/AI BBO Capstone Project  
+# Model Card: Bayesian Black-Box Optimisation System
+**Imperial College London – ML/AI BBO Capstone Project**
 
 ---
 
 ## 1. Overview
+**Model Name:** Bayesian Black-Box Optimisation System (BBO-GP-EI-UCB) 
+**Type:** Sequential Bayesian Optimisation framework 
+**Version:** v1.1 (Weeks 1–13, including final validation and convergence)
 
-### Model Name
-Bayesian Black-Box Optimisation System (BBO-GP-EI-UCB)
+**Description:** 
+The system performs optimisation of unknown black-box functions by sequentially selecting input points and learning from previous evaluations. It uses:
 
-### Type
-Sequential Bayesian Optimisation framework  
+- Gaussian Process (GP) surrogate modelling 
+- Acquisition functions: Expected Improvement (EI), Upper Confidence Bound (UCB) 
 
-### Version
-v1.0 (Weeks 1–10 implementation, pre-validation stage)
-
----
-
-## Description
-
-This model performs **optimisation of unknown functions** using:
-- Gaussian Process (GP) surrogate modelling  
-- Acquisition-based query selection  
-
-It operates under a strict constraint of:
-- **One query per iteration**
+It operates under a strict **one query per function per week** regime over 13 weeks, reflecting realistic cost constraints.
 
 ---
 
 ## 2. Intended Use
+**Suitable Tasks:** 
+- Black-box optimisation 
+- Hyperparameter tuning 
+- Simulation-based optimisation 
+- Low-budget sequential problems 
+- Noisy or expensive evaluations 
 
-### Suitable Tasks
-
-- Black-box optimisation  
-- Hyperparameter tuning  
-- Simulation-based optimisation  
-- Low-budget sequential problems  
-- Noisy or expensive evaluations  
-
-### Not Suitable For
-
-- Safety-critical systems  
-- One-shot optimisation problems  
-- Deterministic analytical optimisation  
-- Causal inference  
+**Not Suitable For:** 
+- Safety-critical systems 
+- One-shot optimisation 
+- Deterministic analytical optimisation 
+- Causal inference tasks 
 
 ---
 
 ## 3. Model Strategy and Evolution
+**Core Components:** 
+- Gaussian Processes (GPs) with RBF / Matérn kernels and Automatic Relevance Determination (ARD) 
+- Acquisition strategies: EI and UCB, tuned per function and phase 
+- Optimisation methods: Multi-start, Differential Evolution (DE), L-BFGS-B refinement, random restarts 
 
-### Core Components
-
-- Gaussian Processes (GPs)  
-- RBF and Matérn kernels  
-- Automatic Relevance Determination (ARD)  
-- Acquisition functions:
-  - Expected Improvement (EI)  
-  - Upper Confidence Bound (UCB)  
-
-### Optimisation Methods
-
-- Multi-start optimisation  
-- Differential Evolution (DE)  
-- L-BFGS-B refinement  
-- Random restarts and jitter  
-
----
-
-### Strategy Evolution
+**Strategy Timeline:** 
 
 | Phase | Weeks | Behaviour |
-|------|------|----------|
-| Exploration | 1–3 | Global search (high ξ / κ) |
-| Balanced | 4–7 | Structure discovery |
-| Localisation | 8–9 | Region refinement |
-| Exploitation | 10 | Near-greedy EI, tight bounds |
-| Validation | 11–12 | Confirm convergence, minimal exploration |
+|----------------|-------|-----------------------------------------------|
+| Exploration | 1–5 | Broad global search; moderate ξ/κ; LHS for high-dimensional functions |
+| Exploitation + Some Exploration | 6–9 | Focus on promising regions; ARD identifies sensitive dimensions; DE/multi-start avoids local traps |
+| Final Exploitation | 10 | Tight local refinement near best-known optima; ξ very small; boundary effects important |
+| Convergence & Confirmation | 11–13 | Minimal exploration; GP predictions trusted; final evaluations confirm reproducibility |
 
-> **Note:** Exact queries, ξ/κ values, and search radii per function are detailed in the [main README](README.md) tables.
-
----
-
-### Week 10 Behaviour
-
-- EI uses very small ξ (0.0005–0.005)  
-- Search radius ≈ 0.02–0.03  
-- Strong reliance on GP posterior  
-
-This reflects **provisional convergence**, not final confirmation. Weeks 11–12 address full validation.
+**Notes:** 
+- Weeks 11–13 provide final confirmation and consolidation of function behaviour. 
+- ξ/κ values progressively decrease to ensure convergence. 
+- Transformations (log/shift) stabilise GP predictions, especially for negative or noisy outputs.
 
 ---
 
 ## 4. Performance Summary
 
 | Function | Outcome |
-|----------|--------|
-| F1 | Localised narrow peaks identified |
-| F2 | Stable optimisation under noise |
-| F3 | Sensitive dimension exploited |
-| F4 | Multimodal optimisation handled via DE |
-| F5 | Near-optimal convergence |
-| F6 | Dimension-aware improvements |
-| F7 | Gradual high-dimensional refinement |
-| F8 | Ridge-following behaviour |
+|----------|---------|
+| F1 | Localised narrow peaks identified; final validation confirms convergence | 
+| F2 | Stable optimisation under noise; final maxima confirmed | 
+| F3 | Sensitive dimensions exploited; drug-combo candidates refined | 
+| F4 | Multimodal ML hyperparameter tuning handled; DE ensures reproducibility | 
+| F5 | Near-optimal convergence; ultra-precise final yield | 
+| F6 | Dimension-aware recipe improvements; ARD confirms relevant features | 
+| F7 | High-dimensional refinement; final queries ensure convergence |
+| F8 | Ridge-following behaviour in complex 8D space; boundaries confirmed |
 
-### Metrics
-
-- Best observed value  
-- Convergence trend  
-- GP stability  
-- Exploration vs exploitation balance (qualitative)  
+**Metrics Used:** 
+- Best observed values per function 
+- Convergence trends over weeks 
+- GP surrogate stability 
+- Qualitative exploration vs exploitation balance 
 
 ---
 
 ## 5. Assumptions and Constraints
+**Assumptions:** 
+- Local smoothness of functions 
+- GP surrogate adequately models function behaviour 
+- Noise approximately Gaussian for stochastic functions 
+- ARD correctly identifies sensitive dimensions 
 
-### Assumptions
-
-- Local smoothness of functions  
-- GP surrogate is adequate  
-- Noise is approximately Gaussian  
-- ARD correctly identifies important dimensions  
-
-### Constraints
-
-- One query per iteration  
-- Limited evaluation budget  
-- No access to true function  
+**Constraints:** 
+- One query per function per week 
+- Limited evaluation budget 
+- No access to true function 
+- Function dimensionality varies (2D–8D), some with noise or complex interactions 
 
 ---
 
 ## 6. Failure Modes
-
-- Convergence to local optima  
-- Overconfidence in GP predictions  
-- Noise misinterpretation (F2)  
-- Incorrect dimension relevance (ARD)  
-- Boundary bias (high-dimensional functions)  
+- Convergence to local optima 
+- Overconfidence in GP predictions 
+- Noise misinterpretation (F2) 
+- Incorrect dimension relevance (ARD) 
+- Boundary bias for high-dimensional functions (F7, F8) 
 
 ---
 
 ## 7. Transparency and Reproducibility
+**Transparency:** 
+- Week-by-week query history, acquisition function choices, kernel selections, and strategy evolution documented in notebooks 
+- All EI/UCB parameters, bounds, and GP hyperparameters included 
 
-### Transparency
+**Reproducibility:** 
+- Full dataset: [`full_data_inputs_and_outputs.md`](./full_data_inputs_and_outputs.md) 
+- Notebooks: [`/notebooks/Module 12-24 BBO Capstone.ipynb`](./notebooks) 
+- Allows replication of sequential optimisation methodology and convergence confirmation 
 
-The system documents:
-- Query history  
-- Acquisition strategies  
-- Kernel choices  
-- Strategy evolution  
-
-### Reproducibility
-
-Reproducible at a **methodological level**, but requires:
-- GP hyperparameters  
-- Optimisation settings  
-- Random seeds  
-- Week-by-week queries and ξ/κ values are in the [main README](README.md) tables
-
-### Adaptability
-
-- Can be applied to new optimisation problems  
-- Parameters (ξ, κ, bounds) can be tuned  
-- Alternative acquisition strategies can be used  
+**Adaptability:** 
+- Can be applied to new black-box problems 
+- Acquisition strategies, ξ/κ, and bounds tunable per function 
+- Optional transformations for stabilisation 
 
 ---
 
 ## 8. Key Insight
-
-> Early exploration determines the trajectory of optimisation, while late-stage performance depends on how effectively the model exploits learned structure.
+- Early exploration determines the trajectory of optimisation 
+- Mid-phase exploitation leverages learnt structure 
+- Late-phase convergence (Weeks 11–13) validates optima and ensures reproducibility 
+- ARD identifies sensitive dimensions, guiding efficient local refinement 
 
 ---
 
-## 9. Week 10 Context
+## 9. Non-Technical Summary
+This model optimises unknown functions by learning from sequentially collected data. Each week, it selects one input to evaluate, balancing the search between unexplored regions and promising peaks. Across 13 weeks, it transitions from broad exploration to fine-grained exploitation, culminating in reproducible near-optimal solutions for all eight functions. It is suitable for research, simulations, and coursework, but not for real-world safety-critical decision-making. Full datasets and notebooks allow anyone to replicate the experiments and verify results.
 
-- Optimisation is highly local  
-- Improvements are diminishing  
-- Model confidence is high but not fully validated  
+---
 
-Weeks 11–12 are required to:
-- Confirm optimality  
-- Test robustness  
-- Address remaining uncertainty
+## 10. References
+- Rasmussen & Williams (2006), *Gaussian Processes for Machine Learning* 
+- Jones et al. (1998), *Efficient Global Optimization* 
+- Imperial College London Professional Certificate in ML/AI materials
+
