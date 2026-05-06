@@ -257,14 +257,14 @@ This section summarises the approach taken across 12 weeks for the Black-Box Opt
 ### Week 10: Final Exploitation
 | Function | Dim | Focus | Query | EI ξ / Search Radius | Notes |
 |----------|-----|-------|-------|--------------------|-------|
-| F1 | 2D | Exploit best-known peak | [0.629953, 0.486520] | 0.005 / 0.02 | Narrow peaks, local refinement, no exploration needed |
-| F2 | 2D | Refine local peak | [0.533026, 0.565895] | 0.005 / 0.02 | Noise-sensitive, careful GP exploitation |
-| F3 | 3D | Refine promising drug combo | [0.869309,0.567474,0.093237] | 0.005 / focused bounds | Exploit low length-scale dimensions; negative outputs shifted |
-| F4 | 4D | Local ML hyperparameter refinement | [0.401766,0.385109,0.392801,0.432944] | 0.003 / ±0.02 | DE avoids duplicates; focus on local cluster |
-| F5 | 4D | Ultra-precise fine-tune | [0.999992,0.999997,0.999996,0.990008] | 0.0005 / tight bounds | Essentially pure exploitation |
-| F6 | 5D | Refine recipe | [0.374036,0.285500,0.745577,0.848678,0.130795] | 0.0005 / ±0.03 | ARD highlights sensitive dims; slight boundary shifts |
-| F7 | 6D | Local BO step | [0.1482,0.1625,0.3973,0.2662,0.2852,0.8291] | 0.001 / 0.02 | Local refinement; minor radius adjustments suggested |
-| F8 | 8D | Ridge + boundary push | [0.0358,0.0832,0.1629, ~0,0.7542,0.4736,0.1572,0.8728] | 0.001 / 0.03 | High-dimensional boundary effects; minimal improvement |
+| F1 | 2D | Exploit best-known peak | `[0.629953, 0.486520]` | 0.005 / 0.02 | Narrow peaks, local refinement, no exploration needed |
+| F2 | 2D | Refine local peak | `[0.533026, 0.565895]` | 0.005 / 0.02 | Noise-sensitive, careful GP exploitation |
+| F3 | 3D | Refine promising drug combo | `[0.869309, 0.567474, 0.093237]` | 0.005 / focused bounds | Exploit low length-scale dimensions; negative outputs shifted |
+| F4 | 4D | Local ML hyperparameter refinement | `[0.401766, 0.385109, 0.392801, 0.432944]` | 0.003 / ±0.02 | DE avoids duplicates; focus on local cluster |
+| F5 | 4D | Ultra-precise fine-tune | `[0.999992, 0.999997, 0.999996, 0.990008]` | 0.0005 / tight bounds | Essentially pure exploitation |
+| F6 | 5D | Refine recipe | `[0.374036, 0.285500, 0.745577, 0.848678, 0.130795]` | 0.0005 / ±0.03 | ARD highlights sensitive dims; slight boundary shifts |
+| F7 | 6D | Local BO step | `[0.1482, 0.1625, 0.3973, 0.2662, 0.2852, 0.8291]` | 0.001 / 0.02 | Local refinement; minor radius adjustments suggested |
+| F8 | 8D | Ridge + boundary push | `[0.0358, 0.0832, 0.1629, ~0, 0.7542, 0.4736, 0.1572, 0.8728]` | 0.001 / 0.03 | High-dimensional boundary effects; minimal improvement |
 
 **Key Patterns:**
 - Exploitation dominates; ξ values very small.  
@@ -280,14 +280,14 @@ This section summarises the approach taken across 12 weeks for the Black-Box Opt
 
 | Function | Dim | Planned Focus | Final Query | EI ξ / Search Radius (Weeks 11-13) | Notes |
 |----------|-----|---------------|-------|--------------------|-------|
-| F1 | 2D | Confirm best contamination source | [0.607953, 0.508520] | 0.001 / 0.01 → 0.0005 / 0.005 → 0.0001 / 0.002 | Minimal exploration; trust GP; final validation → convergence and final confirmation |
-| F2 | 2D | Confirm local peak refinement | [0.506339, 0.532020] | 0.002 / 0.01 → 0.001 / 0.005 → 0.00001 / 0.002 | Noise-aware; final check of previous maxima → convergence and final confirmation |
-| F3 | 3D | Refine promising drug combination | [0.838816, 0.549524, 0.083734] | 0.002 → 0.001 → 0.00001 | Exploit sensitive dims; confirm stability of predictions → convergence and final confirmation |
-| F4 | 4D | Validate ML hyperparameter refinement | [0.404528, 0.372208, 0.390889, 0.432584] | 0.002 / ±0.01 → 0.001 / ±0.005 → 0.00001 / ±0.002 | Ensure DE results reproducible; local cluster confirmed → convergence and final confirmation |
-| F5 | 4D | Ultra-precise final chemical yield | [0.999999, 0.999999, 0.999999, 0.999999] | 0.0001 → 0.00001 → 0.000001 / 0.0005 | Near-peak evaluation; essentially pure exploitation → convergence and final confirmation |
-| F6 | 5D | Confirm recipe optimisation | [0.343537, 0.255007, 0.725570, 0.878177, 0.101295] | 0.0001 / ±0.015 → 0.00001 / ±0.005 → 0.000001 / ±0.0005 | Check ARD-sensitive dimensions; slight boundary shifts if needed → convergence and final confirmation |
-| F7 | 6D | Fine-tune hyperparameters | [0.156593, 0.180499, 0.379340, 0.324014, 0.266726, 0.783520] | 0.0005 / ±0.01 → 0.0001 / ±0.005 → 0.0001 / ±0.0001 | Local refinement; ensure reproducibility of BO steps → convergence and final confirmation |
-| F8 | 8D | Validate ridge + boundary convergence | [0.096511, 0.083242, 0.119941, 0.127242, 0.754161, 0.464532, 0.231655, 0.872809] | 0.001 → 0.001 → 0.001 | High-dimensional boundary effects; confirm minimal improvement → convergence and final confirmation |
+| F1 | 2D | Confirm best contamination source | `[0.607953, 0.508520]` | 0.001 / 0.01 → 0.0005 / 0.005 → 0.0001 / 0.002 | Minimal exploration; trust GP; final validation → convergence and final confirmation |
+| F2 | 2D | Confirm local peak refinement | `[0.506339, 0.532020]` | 0.002 / 0.01 → 0.001 / 0.005 → 0.00001 / 0.002 | Noise-aware; final check of previous maxima → convergence and final confirmation |
+| F3 | 3D | Refine promising drug combination | `[0.838816, 0.549524, 0.083734]` | 0.002 → 0.001 → 0.00001 | Exploit sensitive dims; confirm stability of predictions → convergence and final confirmation |
+| F4 | 4D | Validate ML hyperparameter refinement | `[0.404528, 0.372208, 0.390889, 0.432584]` | 0.002 / ±0.01 → 0.001 / ±0.005 → 0.00001 / ±0.002 | Ensure DE results reproducible; local cluster confirmed → convergence and final confirmation |
+| F5 | 4D | Ultra-precise final chemical yield | `[0.999999, 0.999999, 0.999999, 0.999999]` | 0.0001 → 0.00001 → 0.000001 / 0.0005 | Near-peak evaluation; essentially pure exploitation → convergence and final confirmation |
+| F6 | 5D | Confirm recipe optimisation | `[0.343537, 0.255007, 0.725570, 0.878177, 0.101295]` | 0.0001 / ±0.015 → 0.00001 / ±0.005 → 0.000001 / ±0.0005 | Check ARD-sensitive dimensions; slight boundary shifts if needed → convergence and final confirmation |
+| F7 | 6D | Fine-tune hyperparameters | `[0.156593, 0.180499, 0.379340, 0.324014, 0.266726, 0.783520]` | 0.0005 / ±0.01 → 0.0001 / ±0.005 → 0.0001 / ±0.0001 | Local refinement; ensure reproducibility of BO steps → convergence and final confirmation |
+| F8 | 8D | Validate ridge + boundary convergence | `[0.096511, 0.083242, 0.119941, 0.127242, 0.754161, 0.464532, 0.231655, 0.872809]` | 0.001 → 0.001 → 0.001 | High-dimensional boundary effects; confirm minimal improvement → convergence and final confirmation |
 
 **Key Points:**
 - Weeks 11–13 confirm convergence F1-F8.  
@@ -321,6 +321,6 @@ This repository provides a complete end-to-end study of constrained black-box op
 It serves as a practical demonstration of how ML systems operate when data is limited, expensive, and sequentially acquired.
 
 ## References
-- Rasmussen & Williams (2006), "Gaussian Process for Machine Learning".
-- Jones et al. (1998), "Efficient Global Optimization".
+- Rasmussen & Williams (2006), *Gaussian Process for Machine Learning*
+- Jones et al. (1998), *Efficient Global Optimization*
 - Imperial College London Professional Certificate in ML/AI materials.
