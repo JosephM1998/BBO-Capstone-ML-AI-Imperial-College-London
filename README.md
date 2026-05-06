@@ -68,17 +68,24 @@ This repository contains all notebooks, data documentation, and model governance
 ### Repository structure
 
 BBO-Capstone-ML-AI-Imperial-College-London/
-│
-├── README.md 
-├── data_sheet.md 
-├── model_card.md 
-├── full_data_inputs_and_outputs.md 
-│
-├── notebooks/ 
-│ ├── Module 12 BBO Capstone.ipynb 
-│ ├── Module 13 BBO Capstone Week 2.ipynb 
-│ ├── … Weeks 3–12 notebooks
-│ └── Module 24 BBO Capstone Week 13 of 13.ipynb
+├── README.md # Project overview, non-technical summary, and navigation guide
+├── data_sheet.md # Detailed dataset description (datasheet)
+├── model_card.md # Model description, assumptions, limitations
+├── full_data_inputs_and_outputs.md # Complete query inputs and outputs for Functions F1–F8
+├── notebooks/ # Jupyter notebooks documenting weekly submissions and experiments
+│ ├── Module 12 BBO Capstone.ipynb # Week 1: Initial experimentation
+│ ├── Module 13 BBO Capstone Week 2.ipynb # Week 2
+│ ├── Module 14 BBO Capstone Week 3.ipynb # Week 3
+│ ├── Module 15 BBO Capstone Week 4.ipynb # Week 4
+│ ├── Module 16 BBO Capstone Week 5.ipynb # Week 5
+│ ├── Module 17 BBO Capstone Week 6.ipynb # Week 6
+│ ├── Module 18 BBO Capstone Week 7.ipynb # Week 7
+│ ├── Module 19 BBO Capstone Week 8.ipynb # Week 8
+│ ├── Module 20 BBO Capstone Week 9.ipynb # Week 9
+│ ├── Module 21 BBO Capstone Week 10.ipynb # Week 10: Final exploitation
+│ ├── Module 22 BBO Capstone Week 11.ipynb # Week 11: Convergence validation
+│ ├── Module 23 BBO Capstone Week 12.ipynb # Week 12: Convergence validation
+│ └── Module 24 BBO Capstone Week 13.ipynb # Week 13: Final confirmation of results
 
 ### Notebooks (`/notebooks`)
 
