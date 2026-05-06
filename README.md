@@ -58,6 +58,34 @@ These functions vary in dimensionality, noise, and structure, requiring differen
 - **[Model Card](model_card.md)** – Overview of the Bayesian optimisation model, its strategy, performance, assumptions, and limitations.
 - **[`full_data_inputs_and_outputs.md`](full_data_inputs_and_outputs.md)** – Complete query inputs and outputs for F1–F8, Weeks 1–13
 
+## Documentation Synergy Map (Visual Guide)
+```text
+                ┌───────────────────────────────┐
+                │        README.md              │
+                │  (Project Narrative & Guide) │
+                └─────────────┬─────────────────┘
+                              │
+      ┌───────────────────────┼────────────────────────┐
+      │                       │                        │
+      ▼                       ▼                        ▼
+┌───────────────┐       ┌───────────────┐        ┌───────────────┐
+│ data_sheet.md │       │ model_card.md │        │ notebooks/    │
+│  (Dataset     │       │  (Model &     │        │  Week 1–13   │
+│   Description │       │   Assumptions)│        │  Sequential  │
+│   & Structure)│       │               │        │  Experiments)│
+└───────┬───────┘       └───────┬───────┘        └───────┬───────┘
+        │                       │                        │
+        │ Cross-References       │ Cross-References       │
+        │                       │                        │
+        ▼                       ▼                        ▼
+ ┌───────────────┐       ┌───────────────┐        ┌───────────────┐
+ │ full_data_    │       │ weekly query  │        │ visualisations│
+ │ inputs_&_outputs.md │  │ strategies   │        │ & PCA plots  │
+ │ (Actual Data  │       │ ξ/κ, GP params│        │ confirm      │
+ │ for F1–F8)   │       │ Acquisition   │        │ clustering   │
+ └───────────────┘       └───────────────┘        └───────────────┘
+```
+
 ---
 
 ## Section 2: Navigating this repository
