@@ -44,15 +44,8 @@ The dataset supports:
 
 ### Format
 
-- Inputs:
-x = [x1, x2, ..., xn], where xi ∈ [0,1]
-
-- Stored as:
-x1-x2-...-xn
-(rounded to 6 decimal places)
-
-- Outputs:
-y ∈ ℝ
+- Inputs are n-dimensional vectors: `x = [x1, x2, ..., xn]`, xi ∈ [0,1], stored as hyphen-separated strings x1-x2-...-xn rounded to six decimal places (e.g., `0.123456-0.654321`).  
+- Outputs are scalar values: `y ∈ ℝ`, representing function evaluations. 
 
 ---
 
@@ -104,17 +97,18 @@ Data was generated using **sequential Bayesian Optimisation**:
 
 ### Time Frame
 
-- Data collected over **12 weeks**
+- Data collected over **13 weeks**
 - Week 10 represents **advanced-stage exploitation**, Weeks 11–13 focus on **validation and convergence confirmation**  
 
 ---
 
 ## 4. Preprocessing and Transformations
 
-- Log transformation (for stability)  
-- Output shifting (for negative objectives)  
+- Log transformation applied for stability  
+- Output shifting applied for negative objectives  
 - Inputs remain bounded in [0,1]  
 - No missing values  
+- No scaling beyond [0,1] normalisation  
 
 ---
 
@@ -133,41 +127,32 @@ Data was generated using **sequential Bayesian Optimisation**:
 - Safety-critical systems  
 - Causal inference tasks  
 
+This dataset allows researchers and participants to replicate the sequential optimisation methodology in a controlled setting.
+
 ---
 
 ## 6. Distribution and Access
 
-- Available via coursework repository / project files  
-
-### Terms of Use
-
-- Educational and research use only  
-- Not for commercial deployment  
-
-### Reproducibility Note
-
-- Dataset is **not directly reproducible**
-- Underlying functions are unknown (black-box setting)
-- Exact week-by-week queries can be referenced in the [main README](README.md) for methodological reproducibility
+- Available via this GitHub repository in the file `full_data_inputs_and_outputs.md`.
+- Terms of Use: Educational and research use only. Not for commercial deployment.
+- Reproducibility Note: All input-output datasets (Weeks 1–13) are included, enabling full reproducibility of the optimisation experiments. The underlying functions remain unknown (black-box setting), but week-by-week queries allow replication of the methodological process.
 
 ---
 
 ## 7. Maintenance
 
-- Maintained by project author  
-- Updated weekly (Weeks 1–13)  
-- Final dataset frozen after completion  
+- Maintained and updated by the project author during Weeks 1–13  
+- Final version included in the repository is frozen and complete
 
 ---
 
 ## 8. Ethical Considerations
 
-- No personal or sensitive data  
-- Fully synthetic  
+- No personal or sensitive data; fully synthetic  
 - Highlights risks of:
-  - Over-exploitation  
+  - Over-exploitation of search space  
   - Model overconfidence  
-  - Limited exploration  
+  - Limited exploration in some regions
 
 ---
 
@@ -176,4 +161,4 @@ Data was generated using **sequential Bayesian Optimisation**:
 The dataset reflects a **path-dependent optimisation process**, where:
 - Early sampling decisions strongly influence later results  
 - Some regions may never be explored  
-- Weeks 11–13 mainly validate convergence and final optima
+- Weeks 11–13 mainly serve to validate convergence and final optima
