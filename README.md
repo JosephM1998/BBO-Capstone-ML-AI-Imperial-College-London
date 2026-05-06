@@ -69,23 +69,16 @@ This repository contains all notebooks, data documentation, and model governance
 
 BBO-Capstone-ML-AI-Imperial-College-London/
 │
-|
-├── README.md  
-|
-├── data_sheet.md              # Detailed dataset description (datasheet)
-|
-├── model_card.md              # Model description, assumptions, limitations
-|
-├── full_data_inputs_and_outputs.md  # Complete query inputs and outputs for F1–F8
+├── README.md 
+├── data_sheet.md # Detailed dataset description (datasheet)
+├── model_card.md # Model description, assumptions, and limitations
+├── full_data_inputs_and_outputs.md # Complete query inputs and outputs for Functions F1–F8
 │
-├── notebooks/                 # Jupyter notebooks for weekly submissions & experiments
-│   ├── Module 12 BBO Capstone.ipynb          # Week 1
-|   |
-│   ├── Module 13 BBO Capstone Week 2.ipynb   # Week 2
-|   |
-│   ├── …                                   # Weeks 3–12
-|   |
-│   └── Module 24 BBO Capstone Week 13.ipynb  # Week 13
+├── notebooks/ # Jupyter notebooks for weekly submissions and experiments
+│ ├── Module 12 BBO Capstone.ipynb # Week 1 notebook
+│ ├── Module 13 BBO Capstone Week 2.ipynb # Week 2 notebook
+│ ├── … # Weeks 3–12 notebooks
+│ └── Module 24 BBO Capstone Week 13 of 13.ipynb # Week 13 notebook
 
 ### Notebooks (`/notebooks`)
 
