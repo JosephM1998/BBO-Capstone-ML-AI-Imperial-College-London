@@ -67,25 +67,33 @@ This repository contains all notebooks, data documentation, and model governance
 
 ### Repository structure
 
-BBO-Capstone-ML-AI-Imperial-College-London/
-├── README.md # Project overview, non-technical summary, and navigation guide
-├── data_sheet.md # Detailed dataset description (datasheet)
-├── model_card.md # Model description, assumptions, limitations
-├── full_data_inputs_and_outputs.md # Complete query inputs and outputs for Functions F1–F8
-├── notebooks/ # Jupyter notebooks documenting weekly submissions and experiments
-│ ├── Module 12 BBO Capstone.ipynb # Week 1: Initial experimentation
-│ ├── Module 13 BBO Capstone Week 2.ipynb # Week 2
-│ ├── Module 14 BBO Capstone Week 3.ipynb # Week 3
-│ ├── Module 15 BBO Capstone Week 4.ipynb # Week 4
-│ ├── Module 16 BBO Capstone Week 5.ipynb # Week 5
-│ ├── Module 17 BBO Capstone Week 6.ipynb # Week 6
-│ ├── Module 18 BBO Capstone Week 7.ipynb # Week 7
-│ ├── Module 19 BBO Capstone Week 8.ipynb # Week 8
-│ ├── Module 20 BBO Capstone Week 9.ipynb # Week 9
-│ ├── Module 21 BBO Capstone Week 10.ipynb # Week 10: Final exploitation
-│ ├── Module 22 BBO Capstone Week 11.ipynb # Week 11: Convergence validation
-│ ├── Module 23 BBO Capstone Week 12.ipynb # Week 12: Convergence validation
-│ └── Module 24 BBO Capstone Week 13.ipynb # Week 13: Final confirmation of results
+| Folder/File | Description |
+|------------|-------------|
+| [`README.md`](README.md) | Project overview, non-technical summary, navigation guide |
+| [`data_sheet.md`](data_sheet.md) | Detailed dataset description (datasheet) |
+| [`model_card.md`](model_card.md) | Model description, assumptions, limitations |
+| [`full_data_inputs_and_outputs.md`](full_data_inputs_and_outputs.md) | Complete query inputs and outputs for Functions F1–F8 |
+| [`notebooks/`](notebooks/) | Jupyter notebooks documenting weekly submissions and experiments |
+
+### Notebooks
+
+| Notebook | Week | Description |
+|----------|------|-------------|
+| [`Module 12 BBO Capstone.ipynb`](notebooks/Module%2012%20BBO%20Capstone.ipynb) | 1 | Initial experimentation and function analysis |
+| [`Module 13 BBO Capstone Week 2.ipynb`](notebooks/Module%2013%20BBO%20Capstone%20Week%202.ipynb) | 2 | Week 2 experiments |
+| [`Module 14 BBO Capstone Week 3.ipynb`](notebooks/Module%2014%20BBO%20Capstone%20Week%203.ipynb) | 3 | Week 3 experiments |
+| [`Module 15 BBO Capstone Week 4.ipynb`](notebooks/Module%2015%20BBO%20Capstone%20Week%204.ipynb) | 4 | Week 4 experiments |
+| [`Module 16 BBO Capstone Week 5.ipynb`](notebooks/Module%2016%20BBO%20Capstone%20Week%205.ipynb) | 5 | Week 5 experiments |
+| [`Module 17 BBO Capstone Week 6.ipynb`](notebooks/Module%2017%20BBO%20Capstone%20Week%206.ipynb) | 6 | Week 6 experiments |
+| [`Module 18 BBO Capstone Week 7.ipynb`](notebooks/Module%2018%20BBO%20Capstone%20Week%207.ipynb) | 7 | Week 7 experiments |
+| [`Module 19 BBO Capstone Week 8.ipynb`](notebooks/Module%2019%20BBO%20Capstone%20Week%208.ipynb) | 8 | Week 8 experiments |
+| [`Module 20 BBO Capstone Week 9.ipynb`](notebooks/Module%2020%20BBO%20Capstone%20Week%209.ipynb) | 9 | Week 9 experiments |
+| [`Module 21 BBO Capstone Week 10.ipynb`](notebooks/Module%2021%20BBO%20Capstone%20Week%2010.ipynb) | 10 | Final exploitation and refinement |
+| [`Module 22 BBO Capstone Week 11.ipynb`](notebooks/Module%2022%20BBO%20Capstone%20Week%2011.ipynb) | 11 | Convergence validation |
+| [`Module 23 BBO Capstone Week 12.ipynb`](notebooks/Module%2023%20BBO%20Capstone%20Week%2012.ipynb) | 12 | Convergence validation |
+| [`Module 24 BBO Capstone Week 13.ipynb`](notebooks/Module%2024%20BBO%20Capstone%20Week%2013.ipynb) | 13 | Final confirmation of results |
+
+> **Note:** The `full_data_inputs_and_outputs.md` file contains all query points and corresponding outputs for Functions F1–F8 across Weeks 1–13, ensuring full reproducibility.
 
 ### Notebooks (`/notebooks`)
 
