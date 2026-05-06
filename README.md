@@ -115,7 +115,7 @@ BBO-Capstone-ML-AI-Imperial-College-London/
 | [`Module 21 BBO Capstone Week 10.ipynb`](notebooks/Module%2021%20BBO%20Capstone%20Week%2010.ipynb) | 10 | Final exploitation and refinement |
 | [`Module 22 BBO Capstone Week 11.ipynb`](notebooks/Module%2022%20BBO%20Capstone%20Week%2011.ipynb) | 11 | Convergence validation |
 | [`Module 23 BBO Capstone Week 12.ipynb`](notebooks/Module%2023%20BBO%20Capstone%20Week%2012.ipynb) | 12 | Convergence validation |
-| [`Module 24 BBO Capstone Week 13.ipynb`](notebooks/Module%2024%20BBO%20Capstone%20Week%2013.ipynb) | 13 | Final confirmation of results |
+| [`Module 24 BBO Capstone Week 13.ipynb`](notebooks/Module%2024%20BBO%20Capstone%20Week%2013%20of%2013.ipynb) | 13 | Final confirmation of results |
 
 > **Note:** The `full_data_inputs_and_outputs.md` file contains all query points and corresponding outputs for Functions F1–F8 across Weeks 1–13, ensuring full reproducibility.
 
