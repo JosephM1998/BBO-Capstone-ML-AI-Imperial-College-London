@@ -58,16 +58,35 @@ These functions vary in dimensionality, noise, and structure, requiring differen
 - **[Model Card](model_card.md)** – Overview of the Bayesian optimisation model, its strategy, performance, assumptions, and limitations.
 - **[`full_data_inputs_and_outputs.md`](full_data_inputs_and_outputs.md)** – Complete query inputs and outputs for F1–F8, Weeks 1–13
 
-### Documentation Synergy Map
+**Documentation Synergy Map**  
+The diagram below illustrates the relationships between the main documentation files and notebooks, providing a visual guide for navigating this repository.
 
-This guide shows how the main files and folders relate to each other for easy navigation and reproducibility.
-
-| **File / Folder** | **Purpose / Contents** | **Related Resources** |
-|------------------|----------------------|----------------------|
-| **README.md** | Project narrative, guide, and overview | – |
-| **data_sheet.md** | Dataset description & structure | **full_data_inputs_and_outputs.md** – complete query inputs/outputs for F1–F8 |
-| **model_card.md** | Model overview, assumptions, limitations | **weekly query strategies** – acquisition function ξ/κ, GP parameters |
-| **notebooks/** | Weekly experiments (Week 1–13) | **visualisations/** – PCA plots and cluster confirmation |
+```text
+                ┌───────────────────────────────┐
+                │          README.md            │
+                │  (Project Narrative & Guide)  │
+                └─────────────┬─────────────────┘
+                              │
+      ┌───────────────────────┼────────────────────────┐
+      │                       │                        │
+      ▼                       ▼                        ▼
+┌───────────────┐       ┌───────────────┐        ┌───────────────┐
+│ data_sheet.md │       │ model_card.md │        │ notebooks/    │
+│ (Dataset      │       │ (Model &      │        │ Week 1–13     │
+│ Description   │       │ Assumptions)  │        │ Sequential    │
+│ & Structure)  │       │               │        │ Experiments)  │
+└───────┬───────┘       └───────┬───────┘        └───────┬───────┘
+        │                       │                        │
+        │ Cross-References      │ Cross-References       │
+        │                       │                        │
+        ▼                       ▼                        ▼
+ ┌───────────────┐       ┌───────────────┐        ┌───────────────┐
+ │ full_data_    │       │ weekly query  │        │ visualisations│
+ │ inputs_&_outputs.md │ │ strategies    │        │ & PCA plots   │
+ │ (Actual Data  │       │ ξ/κ, GP params│        │ confirm       │
+ │ for F1–F8)    │       │ Acquisition   │        │ clustering    │
+ └───────────────┘       └───────────────┘        └───────────────┘
+```
 
 **Hierarchy Overview:**  
 - `README.md`  
