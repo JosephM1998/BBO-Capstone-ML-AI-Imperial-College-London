@@ -62,7 +62,7 @@ These functions vary in dimensionality, noise, and structure, requiring differen
 ```text
                 ┌───────────────────────────────┐
                 │        README.md              │
-                │  (Project Narrative & Guide) │
+                │  (Project Narrative & Guide)  │
                 └─────────────┬─────────────────┘
                               │
       ┌───────────────────────┼────────────────────────┐
@@ -70,19 +70,19 @@ These functions vary in dimensionality, noise, and structure, requiring differen
       ▼                       ▼                        ▼
 ┌───────────────┐       ┌───────────────┐        ┌───────────────┐
 │ data_sheet.md │       │ model_card.md │        │ notebooks/    │
-│  (Dataset     │       │  (Model &     │        │  Week 1–13   │
-│   Description │       │   Assumptions)│        │  Sequential  │
-│   & Structure)│       │               │        │  Experiments)│
+│  (Dataset     │       │  (Model &     │        │  Week 1–13    │
+│   Description │       │   Assumptions)│        │  Sequential   │
+│   & Structure)│       │               │        │  Experiments) │
 └───────┬───────┘       └───────┬───────┘        └───────┬───────┘
         │                       │                        │
-        │ Cross-References       │ Cross-References       │
+        │ Cross-References      │ Cross-References       │
         │                       │                        │
         ▼                       ▼                        ▼
  ┌───────────────┐       ┌───────────────┐        ┌───────────────┐
  │ full_data_    │       │ weekly query  │        │ visualisations│
- │ inputs_&_outputs.md │  │ strategies   │        │ & PCA plots  │
- │ (Actual Data  │       │ ξ/κ, GP params│        │ confirm      │
- │ for F1–F8)   │       │ Acquisition   │        │ clustering   │
+│ inputs_&_outputs.md │  │ strategies    │        │ & PCA plots   │
+ │ (Actual Data  │       │ ξ/κ, GP params│        │ confirm       │
+ │ for F1–F8)    │       │ Acquisition   │        │ clustering    │
  └───────────────┘       └───────────────┘        └───────────────┘
 ```
 
