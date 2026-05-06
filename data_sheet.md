@@ -36,7 +36,7 @@ The dataset supports:
 ### Size
 
 - 8 independent datasets (one per function)  
-- Sequential observations collected over **12 weeks**  
+- Sequential observations collected over **13 weeks**  
 - **1 query per function per week**  
 - Dataset grows incrementally over time  
 
@@ -59,7 +59,7 @@ y ∈ ℝ
 ### Gaps and Limitations
 
 - Sparse sampling due to strict query budget  
-- Increasing concentration of samples near optima (Weeks 8–12)  
+- Increasing concentration of samples near optima (Weeks 8–13)  
 - Large areas of the search space remain unexplored  
 - High-dimensional functions (F7–F8) are only partially covered  
 
@@ -84,7 +84,7 @@ Data was generated using **sequential Bayesian Optimisation**:
 | Exploration | 1–3 | Broad search (high ξ / κ) |
 | Mixed | 4–7 | Exploration + exploitation |
 | Localisation | 8–9 | Focus near promising regions |
-| Exploitation | 10–12 | Tight local refinement; Weeks 11–12 for final confirmation |
+| Exploitation | 10–13 | Tight local refinement; Weeks 11–13 for convergence and final confirmation |
 
 > **Note:** Exact queries, ξ/κ values, and search radii per function are detailed in the [main README](README.md) tables.
 
@@ -105,7 +105,7 @@ Data was generated using **sequential Bayesian Optimisation**:
 ### Time Frame
 
 - Data collected over **12 weeks**
-- Week 10 represents **advanced-stage exploitation**, Weeks 11–12 focus on **validation and convergence confirmation**  
+- Week 10 represents **advanced-stage exploitation**, Weeks 11–13 focus on **validation and convergence confirmation**  
 
 ---
 
@@ -155,7 +155,7 @@ Data was generated using **sequential Bayesian Optimisation**:
 ## 7. Maintenance
 
 - Maintained by project author  
-- Updated weekly (Weeks 1–12)  
+- Updated weekly (Weeks 1–13)  
 - Final dataset frozen after completion  
 
 ---
@@ -176,4 +176,4 @@ Data was generated using **sequential Bayesian Optimisation**:
 The dataset reflects a **path-dependent optimisation process**, where:
 - Early sampling decisions strongly influence later results  
 - Some regions may never be explored  
-- Weeks 11–12 mainly validate convergence and final optima
+- Weeks 11–13 mainly validate convergence and final optima
